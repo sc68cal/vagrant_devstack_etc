@@ -1,5 +1,5 @@
 box_name: precise
-allocate_memory: 2048
+allocate_memory: 4096
 num_cpus: 8
 
 ip_prefix: 192.168.27
