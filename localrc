@@ -1,11 +1,18 @@
 SWIFT_REPLICAS=1
 
-## Enable Heat
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-dhcp
+enable_service quantum
+enable_service q-meta
+enable_service q-l3
+enable_service neutron
+enable_service tempest
 
-ENABLED_SERVICES+=,heat,h-api,h-api-cfn,h-api-cw,h-eng
-IMAGE_URLS+=",http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F16-x86_64-cfntools.qcow2,http://fedorapeople.org/groups/heat/prebuilt-jeos-images/F16-i386-cfntools.qcow2"
-
-## Enable quantum
-
-DISABLED_SERVICES+=,n-net
-ENABLED_SERVICES+=,q-svc,q-agt,q-dhcp,q-l3,q-meta,quantum
+Q_PLUGIN=openvswitch
+Q_USE_SECGROUP=True
+ENABLE_TENANT_VLANS=True
+TENANT_VLAN_RANGE=1000:1999
+PHYSICAL_NETWORK=default
+OVS_PHYSICAL_BRIDGE=br-ex
